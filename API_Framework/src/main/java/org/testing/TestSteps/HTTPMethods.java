@@ -26,4 +26,31 @@ public class HTTPMethods {
 		
 	}
 
+	
+	public Response GetRequest(String pathparameter,String urikey,Properties pr)
+	{
+		String uri=pr.getProperty(urikey)+"/"+pathparameter;
+		Response res=
+				
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(uri);
+		
+		return res;
+	}
+	
+	public Response GetRequestquery(String queryparameter,String urikey,String key_extract,Properties pr)
+	{
+		String uri=pr.getProperty(urikey)+"?"+key_extract+"="+queryparameter;
+		Response res=
+				
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(uri);
+		
+		return res;
+	}
+	
 }

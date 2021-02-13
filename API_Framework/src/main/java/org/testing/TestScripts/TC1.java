@@ -20,7 +20,7 @@ import com.jayway.restassured.response.Response;
 
 public class TC1 {
 
-    static String responseIDvalue;
+    public static String responseIDvalue;
 	public  void testcase1() throws IOException {
 		
 		

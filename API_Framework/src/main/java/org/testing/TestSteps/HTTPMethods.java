@@ -40,6 +40,19 @@ public class HTTPMethods {
 		return res;
 	}
 	
+	public Response GetRequestAll(String urikey,Properties pr)
+	{
+		String uri=pr.getProperty(urikey);
+		Response res=
+				
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(uri);
+		
+		return res;
+	}
+	
 	public Response GetRequestquery(String queryparameter,String urikey,String key_extract,Properties pr)
 	{
 		String uri=pr.getProperty(urikey)+"?"+key_extract+"="+queryparameter;
@@ -52,5 +65,25 @@ public class HTTPMethods {
 		
 		return res;
 	}
+	
+	public  Response  PutMethod(String body_data,String Uri_key,String Pathparameter,Properties pr)
+	{
+
+		
+
+		String uri=pr.getProperty(Uri_key)+"/"+Pathparameter;
+				
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		.body(body_data)
+		.when()
+		.put(uri);
+		
+		return res;
+		
+		
+	}
+
 	
 }

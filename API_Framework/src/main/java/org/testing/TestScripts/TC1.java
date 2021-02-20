@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
+import org.testing.ResponseValidation.Responsehandling;
 import org.testing.TestSteps.HTTPMethods;
 import org.testing.utilities.JsonReplacement;
 import org.testing.utilities.LoadJsonFile;
@@ -28,12 +29,12 @@ public class TC1 {
 		Integer replace_data = r.nextInt();
 		
 		//getting the properties object 
-		Properties pr_data=Propertieshandling.loadProperties("../API_Framework/Uri.Properties");
+		Properties pr=Propertieshandling.loadProperties("../API_Framework/Uri.Properties");
 		String data = LoadJsonFile.loadJson("../API_Framework/src/main/java/org/testing/Resources/Simplejson.json"); 
 		data=JsonReplacement.ReplaceValue(data, "id", replace_data.toString());
 		
 		HTTPMethods http = new HTTPMethods();
-		Response res = http.PostMethod(data, "uri_key_1", pr_data);
+		Response res = http.PostMethod(data, "uri_key_1", pr);
 		System.out.println("Reponse is :"+res.asString());
 		System.out.println("Status code is :"+res.statusCode());
 
@@ -41,5 +42,6 @@ public class TC1 {
 		responseIDvalue = ResoponseParseusingJSonPath.ResponseObject(res,"id");
 		
 		System.out.println("Value extracted from response of test case 1 :" +responseIDvalue);
+		Responsehandling.Statuscode(res, 201);
 	}
 }

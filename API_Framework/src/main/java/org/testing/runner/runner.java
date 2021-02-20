@@ -6,16 +6,18 @@ import org.testing.TestScripts.TC1;
 import org.testing.TestScripts.TC2;
 import org.testing.TestScripts.TC3;
 import org.testing.TestScripts.TC4;
+import org.testing.TestScripts.TC5;
 
 public class runner {
 
 	public static void main(String[] args) throws IOException {
 		
 		
-		TC1 tc1= new TC1();
+		TC1 tc1 = new TC1();
 		TC2 tc2 = new TC2();
 		TC3 tc3 = new TC3();
 		TC4 tc4 = new TC4();
+		TC5 tc5 = new TC5();
 		
 		System.out.println("************************ TEST CASE 1 STARTED ******************************");
 		tc1.testcase1();
@@ -30,5 +32,8 @@ public class runner {
 		System.out.println("************************ TEST CASE 4 STARTED ******************************");
 		tc4.testcase4();
 		System.out.println("************************ TEST CASE 4 ENDED ******************************");
+		System.out.println("************************ TEST CASE 5 STARTED ******************************");
+		tc5.testcase5();
+		System.out.println("************************ TEST CASE 5 ENDED ******************************");
 	}
 }

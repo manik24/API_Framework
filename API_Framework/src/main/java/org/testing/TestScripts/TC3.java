@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.testing.ResponseValidation.Responsehandling;
 import org.testing.TestSteps.HTTPMethods;
 import org.testing.utilities.Propertieshandling;
 import org.testing.utilities.ResponseParsingUsingOrgJSON;
@@ -51,6 +52,7 @@ public void testcase3() throws IOException
    System.out.println("===================================  parsing by org JSON  ========================================");
    
    ResponseParsingUsingOrgJSON.ResponseParsing(res.asString(), "id");
+   Responsehandling.Statuscode(res, 200);
    
    
    }

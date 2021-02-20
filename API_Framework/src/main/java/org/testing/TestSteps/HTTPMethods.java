@@ -85,5 +85,20 @@ public class HTTPMethods {
 		
 	}
 
+	public  Response  deleteMethod(String Pathparameter,String urikey,Properties pr)
+	{
+
+		String uri=pr.getProperty(urikey)+"/"+Pathparameter;
+				
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.delete(uri);
+		
+		return res;
+		
+		
+	}
 	
 }
